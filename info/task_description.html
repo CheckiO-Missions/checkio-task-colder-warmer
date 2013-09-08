@@ -1,34 +1,34 @@
 <p>
-    <i>( Describe task in general )</i>
-</p>
+    Let's play a search game. Given a map 10x10 cell. In some cell hidden your goal.
+    You can move at any cell in the field.
+    At each move you got information about closer or farther from goal you at comparison from previous location.
+    Your function got data about previous steps at each step as a list of list, where first and second elements are
+    coordinate (row and column) and third is info about alteration -- "colder" is -1, "warmer" is 1 and "same" is 0.
+    For measurement the distance to the goal we use Euclidean distance. At each step you should return the coordinates for new step.
+    If you placed at the goal cell, then you win. You should find the goal at <strong>10</strong> steps.
 
-<p>
-    Sum two passed ints
 </p>
 
 <p style="text-align: center;">
-    <img class="for_info_only" title="example" src="{{MEDIA}}example.png" alt="example" width="392px"/>
-    <img class="for_editor_only" title="example" src="{{MEDIA}}example.png" alt="example" width="380px"/>
-</p>
-
-<p><i>( Explain input and output values )</i></p>
-<p>
-    <strong>Input: </strong> Two arguments. Both are int
+    <img class="for_info_only" title="colder-warmer" src="{{MEDIA}}colder-warmer.png" alt="colder-warmer" width="600px"/>
+    <img class="for_editor_only" title="colder-warmer" src="{{MEDIA}}example.png" alt="colder-warmer" width="380px"/>
 </p>
 
 <p>
-    <strong>Output: </strong> Int. 
+    <strong>Input: </strong> Information about previous steps. A list of list. Each list contains coordinates and фдеукфешщтю
 </p>
 
+<p>
+    <strong>Output: </strong> Coordinates of new move. A list of two integers.
+</p>
 
 
 <div class="for_info_only">
-    <p><i>( Put some usage examples )</i></p>
     <p>
         <strong>Example:</strong>
     </p>
-    <pre class="brush: python">
-checkio(3, 2) == 5
-checkio(5, 7) == 12
-    </pre>
+    <pre class="brush: python">checkio([[2, 2, 0]])  # [0, 2]
+checkio([[2, 2, 0], [0, 2, -1]])  # [3, 2]
+checkio([[2, 2, 0], [0, 2, -1], [3, 2, 1]])  # [4, 1]
+checkio([[2, 2, 0], [0, 2, -1], [3, 2, 1], [4, 1, 0]])  # [3, 1]</pre>
 </div>
