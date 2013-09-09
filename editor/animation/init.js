@@ -74,15 +74,9 @@ requirejs(['ext_editor_1', 'jquery_190', 'raphael_210'],
                 $content.find('.call').html('Pass: checkio(' + ext.JSON.encode(checkioInput) + ')');
                 $content.find('.answer').remove();
             }
-            //Dont change the code before it
 
-            //Your code here about test explanation animation
-            //$content.find(".explanation").html("Something text for example");
-            //
-            //
-            //
-            //
-            //
+            var canvas = new ColderWarmerCanvas($content.find(".explanation")[0]);
+            canvas.createCanvas(checkioInput);
 
 
             this_e.setAnimationHeight($content.height() + 60);
@@ -107,10 +101,73 @@ requirejs(['ext_editor_1', 'jquery_190', 'raphael_210'],
         var colorGrey1 = "#EBEDED";
 
         var colorWhite = "#FFFFFF";
-        //Your Additional functions or objects inside scope
-        //
-        //
-        //
+
+        function ColderWarmerCanvas(dom) {
+            var x0 = 10,
+                y0 = 10,
+                cellSize = 30,
+                cellN = 10;
+
+            var fullSize = (cellN + 1) * cellSize + x0 * 2;
+            var radius = cellSize * 0.35;
+
+            var attrNumb = {"font-family": "verdana", "font-size": cellSize * 0.6, "stroke": colorBlue4, "fill": colorBlue4};
+            var attrRect = {"stroke": colorGrey4, "stroke-width": 2, "fill": colorGrey1};
+            var attrCircleWarm = {"stroke": colorOrange4, "stroke-width": 2, "fill": colorOrange2};
+            var attrCircleCold = {"stroke": colorBlue4, "stroke-width": 2, "fill": colorBlue2};
+            var attrCircleSame = {"stroke": colorGrey4, "stroke-width": 2, "fill": colorGrey2};
+            var attrLineWarm = {"stroke": colorOrange4, "stroke-width": 2, "arrow-end": "classic-wide-long"};
+            var attrLineCold = {"stroke": colorBlue4, "stroke-width": 2, "arrow-end": "classic-wide-long"};
+            var attrLineSame = {"stroke": colorGrey4, "stroke-width": 2, "arrow-end": "classic-wide-long"};
+
+
+            var paper = Raphael(dom, fullSize, fullSize, 0, 0);
+
+            this.createCanvas = function(steps) {
+                for (var row = 0; row < cellN; row++) {
+                    paper.text(
+                        x0 + cellSize * 1.5 + cellSize * row,
+                        fullSize - (y0 + cellSize * cellN + cellSize / 2),
+                        row
+                    ).attr(attrNumb);
+                    paper.text(
+                        x0 + cellSize / 2,
+                        y0 + cellSize * 1.5 + cellSize * row,
+                        row
+                    ).attr(attrNumb);
+                    for (var col = 0; col < cellN; col++) {
+                        paper.rect(
+                            x0 + cellSize + cellSize * col,
+                            y0 + cellSize * (row + 1),
+                            cellSize, cellSize
+                        ).attr(attrRect);
+                    }
+                }
+                var p;
+                for (var s = 0; s < steps.length; s++) {
+                    paper.circle(
+                        steps[s][1] * cellSize + cellSize * 1.5 + x0,
+                        steps[s][0] * cellSize + cellSize * 1.5 + y0,
+                        radius
+                    ).attr(steps[s][2] === 0 ? attrCircleSame : (steps[s][2] == 1 ? attrCircleWarm : attrCircleCold));
+
+                    if (s !== 0 && (steps[s - 1][0] !== steps[s][0] || steps[s - 1][1] !== steps[s][1])) {
+                        var prevP = p;
+                        p = paper.path(Raphael.format(
+                           "M{0},{1}L{2},{3}",
+                            steps[s - 1][1] * cellSize + cellSize * 1.5 + x0,
+                            steps[s - 1][0] * cellSize + cellSize * 1.5 + y0,
+                            steps[s][1] * cellSize + cellSize * 1.5 + x0,
+                            steps[s][0] * cellSize + cellSize * 1.5 + y0
+                        ));
+                        p.attr(steps[s][2] === 0 ? attrLineSame : (steps[s][2] == 1 ? attrLineWarm : attrLineCold));
+                        if (prevP){
+                            prevP.toFront();
+                        }
+                    }
+                }
+            }
+        }
 
 
     }
