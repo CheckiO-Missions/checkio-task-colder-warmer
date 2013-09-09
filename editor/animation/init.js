@@ -55,6 +55,7 @@ requirejs(['ext_editor_1', 'jquery_190', 'raphael_210'],
             var userResult = data.out;
             var result = data.ext["result"];
             var result_addon = data.ext["result_addon"];
+            var isWin = data.ext["is_win"];
 
 
             //if you need additional info from tests (if exists)
@@ -64,7 +65,7 @@ requirejs(['ext_editor_1', 'jquery_190', 'raphael_210'],
 
             if (!result) {
                 $content.find('.call').html('Fail: checkio(' + ext.JSON.encode(checkioInput) + ')');
-                $content.find('.answer').html('Right result:&nbsp;' + ext.JSON.encode(rightResult));
+                $content.find('.answer').html(result_addon);
                 $content.find('.answer').addClass('error');
                 $content.find('.output').addClass('error');
                 $content.find('.call').addClass('error');
