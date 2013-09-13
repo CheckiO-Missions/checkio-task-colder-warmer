@@ -76,7 +76,8 @@ requirejs(['ext_editor_1', 'jquery_190', 'raphael_210'],
             }
 
             var canvas = new ColderWarmerCanvas($content.find(".explanation")[0]);
-            canvas.createCanvas(checkioInput);
+            canvas.createCanvas();
+            canvas.animateCanvas(checkioInput);
 
 
             this_e.setAnimationHeight($content.height() + 60);
@@ -108,6 +109,9 @@ requirejs(['ext_editor_1', 'jquery_190', 'raphael_210'],
                 cellSize = 30,
                 cellN = 10;
 
+            var delay = 500;
+            var stepDelay = delay * 1.5;
+
             var fullSize = (cellN + 1) * cellSize + x0 * 2;
             var radius = cellSize * 0.35;
 
@@ -123,7 +127,7 @@ requirejs(['ext_editor_1', 'jquery_190', 'raphael_210'],
 
             var paper = Raphael(dom, fullSize, fullSize, 0, 0);
 
-            this.createCanvas = function(steps) {
+            this.createCanvas = function() {
                 for (var row = 0; row < cellN; row++) {
                     paper.text(
                         x0 + cellSize * 1.5 + cellSize * row,
@@ -143,28 +147,24 @@ requirejs(['ext_editor_1', 'jquery_190', 'raphael_210'],
                         ).attr(attrRect);
                     }
                 }
-                var p;
-                for (var s = 0; s < steps.length; s++) {
-                    paper.circle(
-                        steps[s][1] * cellSize + cellSize * 1.5 + x0,
-                        steps[s][0] * cellSize + cellSize * 1.5 + y0,
-                        radius
-                    ).attr(steps[s][2] === 0 ? attrCircleSame : (steps[s][2] == 1 ? attrCircleWarm : attrCircleCold));
 
-                    if (s !== 0 && (steps[s - 1][0] !== steps[s][0] || steps[s - 1][1] !== steps[s][1])) {
-                        var prevP = p;
-                        p = paper.path(Raphael.format(
-                           "M{0},{1}L{2},{3}",
-                            steps[s - 1][1] * cellSize + cellSize * 1.5 + x0,
-                            steps[s - 1][0] * cellSize + cellSize * 1.5 + y0,
-                            steps[s][1] * cellSize + cellSize * 1.5 + x0,
-                            steps[s][0] * cellSize + cellSize * 1.5 + y0
-                        ));
-                        p.attr(steps[s][2] === 0 ? attrLineSame : (steps[s][2] == 1 ? attrLineWarm : attrLineCold));
-                        if (prevP){
-                            prevP.toFront();
+            };
+
+            this.animateCanvas = function(steps) {
+                var c = paper.circle(
+                    steps[0][1] * cellSize + cellSize * 1.5 + x0,
+                    steps[0][0] * cellSize + cellSize * 1.5 + y0,
+                    radius
+                ).attr(attrCircleSame);
+                for (var s = 1; s < steps.length; s++) {
+                    setTimeout(function(){
+                        var at = steps[s][2] === 0 ? attrCircleSame : (steps[s][2] == 1 ? attrCircleWarm : attrCircleCold);
+                        var cx = steps[s][1] * cellSize + cellSize * 1.5 + x0;
+                        var cy = steps[s][0] * cellSize + cellSize * 1.5 + y0;
+                        return function(){
+                            c.animate({"cx": cx, "cy": cy, "stroke": at["stroke"], "fill": at["fill"]}, delay);
                         }
-                    }
+                    }(), stepDelay * (s - 1));
                 }
             }
         }

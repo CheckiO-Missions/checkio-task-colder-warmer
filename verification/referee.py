@@ -5,7 +5,7 @@ from checkio.referees.multicall import CheckiORefereeMulti
 
 from tests import TESTS
 
-MAX_STEP = 10
+MAX_STEP = 12
 
 
 def initial_referee(data):
