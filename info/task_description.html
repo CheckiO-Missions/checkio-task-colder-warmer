@@ -1,11 +1,12 @@
 <p>
-    Let's play a search game. Given a map 10x10 cell. In some cell hidden your goal.
-    You can move at any cell in the field.
-    At each move you got information about closer or farther from goal you at comparison from previous location.
-    Your function got data about previous steps at each step as a list of list, where first and second elements are
-    coordinate (row and column) and third is info about alteration -- "colder" is -1, "warmer" is 1 and "same" is 0.
-    For measurement the distance to the goal we use Euclidean distance. At each step you should return the coordinates for new step.
-    If you placed at the goal cell, then you win. You should find the goal at <strong>12</strong> steps.
+    Let's play a searching game. You have been given a map 10x10 cell and inn some cell we've hidden your goal.
+    You can move to and from any cell in the field.
+    On each move you get information about if the move places you closer or farther from your goal you in comparison 
+    from previous location.
+    Your function compiles data about previous steps one each step as a list of list, where first and second elements are
+    your coordinates (row and column) and third is the info on your status alteration -- "colder" is -1, "warmer" is 1 and "same" is 0.
+    For measurement of the distance to the goal we use Euclidean distance. At each step you should return the coordinates for new step.
+    If your step places you at the goal cell, then you win! You should find the goal within <strong>12</strong> steps.
 
 </p>
 
@@ -15,11 +16,11 @@
 </p>
 
 <p>
-    <strong>Input: </strong> Information about previous steps. A list of list. Each list contains coordinates and alteration.
+    <strong>Input: </strong> Information about previous steps. A list of list. Each list contains coordinates and status alteration (warm, cold same).
 </p>
 
 <p>
-    <strong>Output: </strong> Coordinates of new move. A list of two integers.
+    <strong>Output: </strong> Coordinates of your new move. A list of two integers.
 </p>
 
 
