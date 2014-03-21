@@ -1,4 +1,5 @@
 from math import hypot
+from random import randint
 from checkio.signals import ON_CONNECT
 from checkio import api
 from checkio.referees.multicall import CheckiORefereeMulti
@@ -9,6 +10,13 @@ MAX_STEP = 12
 
 
 def initial_referee(data):
+    if not data["input"]:
+        init = [randint(0, 9), randint(0, 9)]
+        while 1:
+            data["goal"] = [randint(0, 9), randint(0, 9)]
+            if data["goal"] != init:
+                break
+        data["input"] = [init + [0,]]
     data["step_count"] = 0
     return data
 

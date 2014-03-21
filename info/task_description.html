@@ -15,14 +15,12 @@
 </p>
 
 <p>
-    <strong>Precondition:</strong> The input data contains the initial position always (input!=[]).
-</p>
-<p>
-    <strong>Input: </strong> Information about previous steps. A list of lists. Each list contains coordinates and status alteration (warm, cold same).
+    <strong>Input: </strong> Information about previous steps as a list of lists.
+    Each list contains coordinates and status alteration (warm, cold same).
 </p>
 
 <p>
-    <strong>Output: </strong> Coordinates of your new move. A list of two integers.
+    <strong>Output: </strong> The coordinates of your new move as a list of two integers.
 </p>
 
 
@@ -35,3 +33,17 @@ checkio([[2, 2, 0], [0, 2, -1]])  # [3, 2]
 checkio([[2, 2, 0], [0, 2, -1], [3, 2, 1]])  # [4, 1]
 checkio([[2, 2, 0], [0, 2, -1], [3, 2, 1], [4, 1, 0]])  # [3, 1]</pre>
 </div>
+
+
+<p class="for_info_only">
+    <strong>How it is used:</strong>
+    How to find the hidden with indirect data and just beeping beacon.
+    This is a prediction problem and you can use it in the machine learning.
+</p>
+
+
+<p>
+    <strong>Precondition:</strong> The input data contains the initial position always.<br>
+    |map| = 10x10<br>
+
+</p>
