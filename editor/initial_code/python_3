@@ -3,7 +3,7 @@ def checkio(steps):
     return [0, 0]
 
 if __name__ == '__main__':
-    #This part is using only for self-checking and not necessary for auto-testing
+    # This part is using only for self-checking and not necessary for auto-testing
     from math import hypot
     MAX_STEP = 12
 
