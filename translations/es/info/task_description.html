@@ -1,0 +1,65 @@
+<p>
+  Vamos a jugar el juego de las escondidas (<em>hide and seek</em>): Se te ha dado un
+  mapa de 10x10 celdas y en una de ellas hemos escondido el que ser&aacute; tu objetivo.
+  Te puedes mover desde/hacia cualquier celda en el campo y en cada movimiento te
+  informaremos si este te acerca o te aleja de tu objetivo, en comparaci&oacute;n a tu
+  ubicaci&oacute;n anterior. Tu funci&oacute;n deber&aacute; recopilar datos de pasos anteriores, como
+  una lista de listas, donde los dos primeros elementos de cada lista indican
+  tus coordenadas (fila y columna) y el tercer, si te encuentras m&aacute;s cerca o m&aacute;s
+  lejos de tu objetivo (m&aacute;s fr&iacute;o o m&aacute;s caliente):
+</p>
+
+<ul>
+    <li>"m&aacute;s fr&iacute;o" es -1.</li>
+    <li>"m&aacute;s caliente" es 1.</li>
+    <li>"igual" es 0.</li>
+</ul>
+
+<p>
+  Para medir la distancia hasta tu objetivo, deber&aacute;s usar la
+  distancia eucl&iacute;dea.  En cada paso debes devolver las coordenadas del siguiente.
+  Si uno de tus pasos te coloca dentro de la celda que tiene objetivo ganas el juego.
+  Deber&aacute;s encontrar el objetivo usando un m&aacute;ximo de <strong>12</strong> pasos.
+</p>
+
+<p style="text-align: center;">
+    <img class="for_info_only" title="colder-warmer" src="{{MEDIA}}colder-warmer.png" alt="colder-warmer" width="600px"/>
+    <img class="for_editor_only" title="colder-warmer" src="{{MEDIA}}colder-warmer.png" alt="colder-warmer" width="380px"/>
+</p>
+
+<p>
+    <strong>Datos de Entrada: </strong> Informaci&oacute;n sobre los pasos anteriores como una lista de listas.
+    Cada lista contiene coordenadas e informaci&oacute;n de si te encuentras m&aacute;s cerca o m&aacute;s lejos de tu objetivo
+    (caliente:<em>warm</em>, fr&iacute;o:<em>cold</em>, igual:<em>same</em>), con respecto al paso anterior.
+</p>
+
+<p>
+    <strong>Output: </strong> Las coordenadas del siguiente paso como una lista / tupla de dos enteros (<em>int</em>).
+</p>
+
+
+<div class="for_info_only">
+    <p>
+        <strong>Ejemplo:</strong>
+    </p>
+    <pre class="brush: python">checkio([[2, 2, 0]])  # [0, 2]
+checkio([[2, 2, 0], [0, 2, -1]])  # [3, 2]
+checkio([[2, 2, 0], [0, 2, -1], [3, 2, 1]])  # [4, 1]
+checkio([[2, 2, 0], [0, 2, -1], [3, 2, 1], [4, 1, 0]])  # [3, 1]</pre>
+</div>
+
+
+<p class="for_info_only">
+    <strong>&iquest;C&oacute;mo se utiliza?:</strong>
+    Usa este concepto para encontrar alguna cosa usando datos indirectos, como
+    podr&iacute;a ser un sonido en un detector de metales o contador de radiaci&oacute;n.
+    Este es un problema de predicci&oacute;n que puede ser utilizado en <em>machine learning</em>.
+
+</p>
+
+
+<p>
+    <strong>Condiciones:</strong>
+    |map| = 10x10<br>
+
+</p>
