@@ -1,0 +1,52 @@
+<img src="{{MEDIA_CONVERT}}title.png" class="title_img" />
+
+<p>
+    Lassen Sie uns ein Versteckspiel spielen. Sie haben eine Karte mit 10x10 Zellen erhalten und in einer der Zellen haben wir Ihr Ziel versteckt.
+    Sie können sich zu und von jeder Zelle auf dem Feld bewegen.
+    Bei jeder Bewegung werden Sie darüber informiert, ob Sie sich dadurch näher oder weiter von Ihrem Ziel entfernt haben als bei Ihrer vorherigen Position.
+    Ihre Funktion sammelt Daten über frühere Schritte. Jeder Schritt ist eine Liste, bei der das erste und zweite Element
+    ihre Koordinaten (Zeile und Spalte) und das dritte die Information, wie viel näher Sie gekommen sind (kälter oder wärmer) -- "kälter" ist -1, "wärmer" ist 1 und "gleich" ist 0.
+    Für die Messung der Entfernung zum Ziel sollten Sie den euklidischen Abstand verwenden. Bei jedem Schritt müssen Sie die Koordinaten für Ihren nächsten Schritt zurückgeben.
+    Wenn Ihr Schritt Sie innerhalb der Zielzelle platziert, haben Sie gewonnen! Sie sollten das Ziel innerhalb von <strong>12</strong> Schritten finden.
+
+</p>
+
+<p style="text-align: center;">
+    <img class="for_info_only" title="colder-warmer" src="{{MEDIA}}colder-warmer.png" alt="colder-warmer" width="600px"/>
+    <img class="for_editor_only" title="colder-warmer" src="{{MEDIA}}colder-warmer.png" alt="colder-warmer" width="380px"/>
+</p>
+
+<p>
+   <strong>Eingabe: </strong> Informationen über frühere Schritte in Form einer Liste von Listen.
+    Jede Liste enthält Koordinaten und Statusänderungen (warm, kalt, gleich).
+</p>
+
+<p>
+   <strong>Ausgabe: </strong> Die Koordinaten Ihres neuen Zuges als Liste/Tupel von zwei Ganzzahlen.
+</p>
+
+
+<div class="for_info_only">
+    <p>
+        <strong>Beispiel:</strong>
+    </p>
+    <pre class="brush: python">checkio([[2, 2, 0]])  # [0, 2]
+checkio([[2, 2, 0], [0, 2, -1]])  # [3, 2]
+checkio([[2, 2, 0], [0, 2, -1], [3, 2, 1]])  # [4, 1]
+checkio([[2, 2, 0], [0, 2, -1], [3, 2, 1], [4, 1, 0]])  # [3, 1]</pre>
+</div>
+
+
+<p class="for_info_only">
+   <strong>Wie es verwendet wird:</strong>
+    Verwenden Sie dieses Konzept, um etwas mit indirekten Daten zu finden, z.B. einen Piepton (wie ein Metalldetektor oder ein Radzähler).
+    Dies ist ein Vorhersageproblem und Sie können es beim maschinellen Lernen verwenden.
+
+</p>
+
+
+<p>
+   <strong>Vorbedingung:</strong>
+    |map| = 10x10<br>
+
+</p>
