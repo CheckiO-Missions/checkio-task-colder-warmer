@@ -1,0 +1,52 @@
+<img src="{{MEDIA_CONVERT}}title.png" class="title_img" />
+
+<p>
+    Jouons à un jeu de cache-cache. On vous a donné une carte de 10x10 cases et dans l'une d'entre elles, nous avons caché votre objectif.
+    Vous pouvez vous déplacer vers et depuis n'importe quelle cellule du champ.
+    À chaque déplacement, vous serez informé si le déplacement vous rapproche ou vous éloigne de votre objectif, par rapport à votre emplacement précédent.
+    Votre fonction compile les données relatives aux étapes précédentes, chaque étape étant une liste de listes, dont les premier et deuxième éléments sont
+    vos coordonnées (ligne et colonne) et le troisième est l'information sur le degré de rapprochement (plus froid ou plus chaud) -- "plus froid" vaut -1, "plus chaud" vaut 1 et "identique" vaut 0.
+    Pour mesurer la distance qui vous sépare du but, vous devez utiliser la distance euclidienne. À chaque étape, vous devez renvoyer les coordonnées de l'étape suivante.
+    Si votre étape vous place à l'intérieur de la cellule du but, vous avez gagné! Vous devez trouver le but en <strong>12</strong> étapes.
+
+</p>
+
+<p style="text-align: center;">
+    <img class="for_info_only" title="colder-warmer" src="{{MEDIA}}colder-warmer.png" alt="colder-warmer" width="600px"/>
+    <img class="for_editor_only" title="colder-warmer" src="{{MEDIA}}colder-warmer.png" alt="colder-warmer" width="380px"/>
+</p>
+
+<p>
+   <strong>Données d'entrée: </strong> Informations sur les étapes précédentes sous forme de listes.
+    Chaque liste contient des coordonnées et une modification de l'état (chaud, froid, même).
+</p>
+
+<p>
+   <strong>Sortie: </strong> Les coordonnées de votre nouveau déplacement sous forme de liste/tuple de deux entiers.
+</p>
+
+
+<div class="for_info_only">
+    <p>
+        <strong>Exemple:</strong>
+    </p>
+    <pre class="brush: python">checkio([[2, 2, 0]])  # [0, 2]
+checkio([[2, 2, 0], [0, 2, -1]])  # [3, 2]
+checkio([[2, 2, 0], [0, 2, -1], [3, 2, 1]])  # [4, 1]
+checkio([[2, 2, 0], [0, 2, -1], [3, 2, 1], [4, 1, 0]])  # [3, 1]</pre>
+</div>
+
+
+<p class="for_info_only">
+   <strong>Comment l'utiliser:</strong>
+    Utilisez ce concept pour trouver quelque chose avec des données indirectes telles qu'un signal sonore (comme un détecteur de métaux ou un compteur de rad).
+    Il s'agit d'un problème de prédiction que vous pouvez utiliser dans le cadre de l'apprentissage automatique.
+
+</p>
+
+
+<p>
+   <strong>Condition préalable:</strong>
+    |Carte = 10x10<br>
+
+</p>
