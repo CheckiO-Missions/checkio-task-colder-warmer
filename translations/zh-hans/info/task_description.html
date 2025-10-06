@@ -1,0 +1,52 @@
+<img src="{{MEDIA_CONVERT}}title.png" class="title_img" />
+
+<p>
+    我们来玩一个捉迷藏的游戏。我们给你们一张 10x10 小格的地图，我们把你们的目标藏在其中一个小格里。
+    你可以在区域内的任何一个单元格之间移动。
+    每次移动时，您都会收到提示，与之前的位置相比，这次移动会让您离目标更近还是更远。
+    您的函数会编译有关前一步的数据，每一步都是一个列表，其中第一和第二元素是
+    你的坐标（行和列），第三个元素是你离目标更近的信息（更冷或更热）--"更冷 "为-1，"更热 "为 1，"相同 "为 0。
+    对于目标距离的测量，您应该使用欧氏距离。每走一步，都需要返回下一步的坐标。
+    如果你的下一步位于目标单元内，那么你就赢了！您应该在<strong>12</strong>步内找到目标。
+
+</p>
+
+<p style="text-align: center;">
+    <img class="for_info_only" title="colder-warmer" src="{{MEDIA}}colder-warmer.png" alt="colder-warmer" width="600px"/>
+    <img class="for_editor_only" title="colder-warmer" src="{{MEDIA}}colder-warmer.png" alt="colder-warmer" width="380px"/>
+</p>
+
+<p>
+   <strong>输入 </strong> 以列表形式显示的前几个步骤的信息。
+    每个列表包含坐标和状态变化（热、冷相同）。
+</p>
+
+<p>
+   <strong>输出： </strong> 两个整数组成的列表/元组形式的新移动坐标。
+</p>
+
+
+<div class="for_info_only">
+    <p>
+        <strong>示例</strong>
+    </p>
+    <pre class="brush: python">checkio([[2, 2, 0]])  # [0, 2]
+checkio([[2, 2, 0], [0, 2, -1]])  # [3, 2]
+checkio([[2, 2, 0], [0, 2, -1], [3, 2, 1]])  # [4, 1]
+checkio([[2, 2, 0], [0, 2, -1], [3, 2, 1], [4, 1, 0]])  # [3, 1]</pre>
+</div>
+
+
+<p class="for_info_only">
+   <strong>如何使用：</strong>
+    使用这一概念来查找间接数据，如哔哔声（如金属探测器或辐射计数器）。
+    这是一个预测问题，可以在机器学习中使用。
+
+</p>
+
+
+<p>
+   <strong>前提条件：</strong>
+    |map| = 10x10<br>
+
+</p>
