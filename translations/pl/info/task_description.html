@@ -1,0 +1,52 @@
+<img src="{{MEDIA_CONVERT}}title.png" class="title_img" />
+
+<p>
+    Zagrajmy w grę w chowanego. Otrzymali Państwo mapę składającą się z 10x10 komórek, a w jednej z nich ukryliśmy Państwa cel.
+    Mogą Państwo poruszać się do i z dowolnej komórki w polu.
+    Przy każdym ruchu użytkownik jest informowany o tym, czy dany ruch przybliża, czy oddala go od celu w porównaniu z poprzednią lokalizacją.
+    Funkcja kompiluje dane o poprzednich krokach, każdy krok jest listą list, gdzie pierwszy i drugi element to
+    państwa współrzędne (wiersz i kolumna), a trzeci to informacja o tym, o ile bliżej się Państwo znaleźli (zimniej lub cieplej) - "zimniej" to -1, "cieplej" to 1, a "tak samo" to 0.
+    Do pomiaru odległości do celu należy użyć odległości euklidesowej. W każdym kroku należy zwrócić współrzędne dla następnego kroku.
+    Jeśli wykonany krok umieści Pana/Panią w komórce docelowej, wygrywa Pan/Pani! Cel powinien zostać znaleziony w ciągu <strong>12</strong> kroków.
+
+</p>
+
+<p style="text-align: center;">
+    <img class="for_info_only" title="colder-warmer" src="{{MEDIA}}colder-warmer.png" alt="colder-warmer" width="600px"/>
+    <img class="for_editor_only" title="colder-warmer" src="{{MEDIA}}colder-warmer.png" alt="colder-warmer" width="380px"/>
+</p>
+
+<p>
+   <strong>Dane wejściowe: </strong> Informacje o poprzednich krokach jako lista list.
+    Każda lista zawiera współrzędne i zmianę stanu (ciepły, zimny).
+</p>
+
+<p>
+   <strong>Dane wyjściowe: </strong> Współrzędne nowego ruchu jako lista / krotka dwóch liczb całkowitych.
+</p>
+
+
+<div class="for_info_only">
+    <p>
+        <strong>Przykład:</strong>
+    </p>
+    <pre class="brush: python">checkio([[2, 2, 0]])  # [0, 2]
+checkio([[2, 2, 0], [0, 2, -1]])  # [3, 2]
+checkio([[2, 2, 0], [0, 2, -1], [3, 2, 1]])  # [4, 1]
+checkio([[2, 2, 0], [0, 2, -1], [3, 2, 1], [4, 1, 0]])  # [3, 1]</pre>
+</div>
+
+
+<p class="for_info_only">
+   <strong>Sposób użycia:</strong>
+    Proszę wykorzystać tę koncepcję do znalezienia czegoś z danymi pośrednimi, takimi jak sygnał dźwiękowy (np. wykrywacz metalu lub licznik rad).
+    Jest to problem predykcji i można go wykorzystać w uczeniu maszynowym.
+
+</p>
+
+
+<p>
+   <strong>Warunek wstępny:</strong>
+    |map| = 10x10<br>
+
+</p>
